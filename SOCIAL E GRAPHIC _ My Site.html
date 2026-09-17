@@ -3722,17 +3722,15 @@ footer, [id^="comp-mkvje18h"] {
 
     
 
+    
+
     <script>
-        // AGGRESSIVE FONT PATCH
+        // ULTIMATE FONT PATCH
         document.addEventListener("DOMContentLoaded", () => {
             setInterval(() => {
-                const elements = document.querySelectorAll('*');
+                const elements = document.querySelectorAll('.wixui-rich-text__text');
                 for (let i = 0; i < elements.length; i++) {
                     const el = elements[i];
-                    const style = window.getComputedStyle(el);
-                    if (style.fontFamily && (style.fontFamily.toLowerCase().includes('wfont') || style.fontFamily.toLowerCase().includes('glacial'))) {
-                        el.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
-                    }
                     if (el.textContent && el.textContent.includes("GRAPHIC PRODUCTION")) {
                         el.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
                         if(el.parentElement) el.parentElement.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
