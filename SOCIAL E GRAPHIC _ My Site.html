@@ -3724,20 +3724,32 @@ footer, [id^="comp-mkvje18h"] {
 
     
 
-    <script>
-        // ULTIMATE FONT PATCH
-        document.addEventListener("DOMContentLoaded", () => {
-            setInterval(() => {
-                const elements = document.querySelectorAll('.wixui-rich-text__text');
-                for (let i = 0; i < elements.length; i++) {
-                    const el = elements[i];
-                    if (el.textContent && el.textContent.includes("GRAPHIC PRODUCTION")) {
+    
+
+<script>
+    // ULTIMATE FONT PATCH V2
+    document.addEventListener("DOMContentLoaded", () => {
+        const targetTexts = [
+            "GRAPHIC PRODUCTION", 
+            "SOCIAL MEDIA", 
+            "BRAND IDENTITY", 
+            "VIDEO PHOTOSHOOT", 
+            "POP UP EVENTS PRODUCTION"
+        ];
+        setInterval(() => {
+            const elements = document.querySelectorAll('.wixui-rich-text__text');
+            for (let i = 0; i < elements.length; i++) {
+                const el = elements[i];
+                if (el.textContent) {
+                    const text = el.textContent.toUpperCase();
+                    if (targetTexts.some(t => text.includes(t))) {
                         el.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
                         if(el.parentElement) el.parentElement.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
                         if(el.parentElement && el.parentElement.parentElement) el.parentElement.parentElement.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
                     }
                 }
-            }, 500);
-        });
-    </script>
+            }
+        }, 500);
+    });
+</script>
 </body></html>
