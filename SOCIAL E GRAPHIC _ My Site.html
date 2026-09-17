@@ -3726,23 +3726,19 @@ footer, [id^="comp-mkvje18h"] {
 
     
 
+
+
 <script>
-    // ULTIMATE FONT PATCH V2
+    // ULTIMATE FONT PATCH V3 - Handles split <p> tags
     document.addEventListener("DOMContentLoaded", () => {
-        const targetTexts = [
-            "GRAPHIC PRODUCTION", 
-            "SOCIAL MEDIA", 
-            "BRAND IDENTITY", 
-            "VIDEO PHOTOSHOOT", 
-            "POP UP EVENTS PRODUCTION"
-        ];
+        const targetWords = ["GRAPHIC PRODUCTION","SOCIAL MEDIA","BRAND","IDENTITY","VIDEO","PHOTO SHOOT","POP UP","EVENTS PRODUCTION"];
         setInterval(() => {
             const elements = document.querySelectorAll('.wixui-rich-text__text');
             for (let i = 0; i < elements.length; i++) {
                 const el = elements[i];
                 if (el.textContent) {
-                    const text = el.textContent.toUpperCase();
-                    if (targetTexts.some(t => text.includes(t))) {
+                    const text = el.textContent.trim().toUpperCase();
+                    if (targetWords.includes(text)) {
                         el.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
                         if(el.parentElement) el.parentElement.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
                         if(el.parentElement && el.parentElement.parentElement) el.parentElement.parentElement.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
