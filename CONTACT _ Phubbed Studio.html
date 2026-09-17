@@ -499,6 +499,29 @@
             }
         }
     </style>
+
+<style id="mobile-resize-patch">
+@media screen and (max-width: 1000px) {
+    /* Main titles: Phubbed Studio TM */
+    #comp-mkuovkqf *[class*="wixui-rich-text__text"],
+    #comp-lzpgd4aa *[class*="wixui-rich-text__text"] {
+        font-size: 24px !important;
+        line-height: 1.2 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+    
+    /* Service titles: BRAND IDENTITY, VIDEO PHOTO SHOOT, POP UP EVENTS PRODUCTION */
+    #comp-mkwjuf0o *[class*="wixui-rich-text__text"],
+    #comp-mkwjtyc95 *[class*="wixui-rich-text__text"],
+    #comp-mkwk12bt *[class*="wixui-rich-text__text"] {
+        font-size: 18px !important;
+        line-height: 1.2 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+    }
+}
+</style>
 </head>
 <body class="responsive" style="--scrollbar-width: 15px;">
 <script type="text/javascript">
@@ -1122,5 +1145,30 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, 150); // 150ms delay guarantees initial state is painted
 });
+</script>
+
+
+
+
+
+<script>
+    // ULTIMATE FONT PATCH V3 - Handles split <p> tags
+    document.addEventListener("DOMContentLoaded", () => {
+        const targetWords = ["GRAPHIC PRODUCTION","SOCIAL MEDIA","BRAND","IDENTITY","VIDEO","PHOTO SHOOT","POP UP","EVENTS PRODUCTION"];
+        setInterval(() => {
+            const elements = document.querySelectorAll('.wixui-rich-text__text');
+            for (let i = 0; i < elements.length; i++) {
+                const el = elements[i];
+                if (el.textContent) {
+                    const text = el.textContent.trim().toUpperCase();
+                    if (targetWords.includes(text)) {
+                        el.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
+                        if(el.parentElement) el.parentElement.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
+                        if(el.parentElement && el.parentElement.parentElement) el.parentElement.parentElement.style.setProperty("font-family", "helvetica-w01-roman, sans-serif", "important");
+                    }
+                }
+            }
+        }, 500);
+    });
 </script>
 </body></html>
