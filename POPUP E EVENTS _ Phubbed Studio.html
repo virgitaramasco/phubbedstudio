@@ -502,6 +502,15 @@ url("https://static.wixstatic.com/ufonts/000ada_9ea7aaf0e394462bad6b00f788bad1d2
 
 <link rel="stylesheet" type="text/css" href="./STUDIO _ Phubbed Studio_files/group_7.c472a333.chunk.min.css"><script src="./STUDIO _ Phubbed Studio_files/wix-image-kit.05106181.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/htmlparser2-xml.4f17eecc.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[SkipToContentButton].d886e6d7.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt_bootstrap-responsive.1bfc1371.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[RefComponent].33152207.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[PageSections].66f3b3d5.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt_bootstrap.52f92e83.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[HeaderSection].f9760eb9.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt_menu.96085a48.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[FreemiumBannerResponsive_Studio].790a8f0c.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[Container_ResponsiveBox].55b37fe0.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[MenuContainer_Responsive].23316a4c.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[LinkBar_Responsive].2661e0e4.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[ImageX].65541ada.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[Section].95c5adc8.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt_mobile.2658b124.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[VectorImage_VectorButton].9ca56ab4.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[StylableButton_Button].d57c983c.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[VerticalLine_VerticalSolidLine].b0bcb66b.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[FooterSection].8b1201bb.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[FiveGridLine_SolidLineStudio].bf2cf0b5.bundle.min.js.download"></script><script src="./STUDIO _ Phubbed Studio_files/rb_wixui.thunderbolt[Repeater_Responsive].1f9bf17b.bundle.min.js.download"></script>
     <link rel="icon" type="image/png" href="favicon.png">
+
+<style id="universal-our-services-spacing">
+@media screen and (max-width: 1000px) {
+    /* Visually move OUR SERVICES up to avoid overlap, without breaking the grid */
+    [id$="_r_comp-mkuzn1jt"] {
+        transform: translateY(-40px) !important;
+    }
+}
+</style>
 </head>
 <body class="responsive" style="--scrollbar-width: 15px;">
 <script type="text/javascript">
@@ -1354,5 +1363,21 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, 150); // 150ms delay guarantees initial state is painted
 });
+</script>
+
+<script id="universal-spacing-js">
+    document.addEventListener("DOMContentLoaded", () => {
+        setInterval(() => {
+            const isMobile = window.innerWidth <= 1000;
+            const ourServices = document.querySelectorAll('[id$="_r_comp-mkuzn1jt"]');
+            ourServices.forEach(el => {
+                if (isMobile) {
+                    el.style.setProperty("transform", "translateY(-40px)", "important");
+                } else {
+                    el.style.removeProperty("transform");
+                }
+            });
+        }, 500);
+    });
 </script>
 </body></html>

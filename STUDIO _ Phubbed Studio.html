@@ -504,15 +504,17 @@ url("https://static.wixstatic.com/ufonts/000ada_9ea7aaf0e394462bad6b00f788bad1d2
     <link rel="icon" type="image/png" href="favicon.png">
 
 
-<style>
+
+
+
+<style id="universal-our-services-spacing">
 @media screen and (max-width: 1000px) {
     /* Visually move OUR SERVICES up to avoid overlap, without breaking the grid */
-    #comp-mkvo1rqq_r_comp-mkuzn1jt {
+    [id$="_r_comp-mkuzn1jt"] {
         transform: translateY(-40px) !important;
     }
 }
 </style>
-
 </head>
 <body class="responsive" style="--scrollbar-width: 15px;">
 <script type="text/javascript">
@@ -1232,6 +1234,33 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
             
+        
+            // 4. Universal Spacing Fix for OUR SERVICES
+            const ourServices = document.querySelectorAll('[id$="_r_comp-mkuzn1jt"]');
+            ourServices.forEach(el => {
+                if (isMobile) {
+                    el.style.setProperty("transform", "translateY(-40px)", "important");
+                } else {
+                    el.style.removeProperty("transform");
+                }
+            });
+
+        }, 500);
+    });
+</script>
+
+<script id="universal-spacing-js">
+    document.addEventListener("DOMContentLoaded", () => {
+        setInterval(() => {
+            const isMobile = window.innerWidth <= 1000;
+            const ourServices = document.querySelectorAll('[id$="_r_comp-mkuzn1jt"]');
+            ourServices.forEach(el => {
+                if (isMobile) {
+                    el.style.setProperty("transform", "translateY(-40px)", "important");
+                } else {
+                    el.style.removeProperty("transform");
+                }
+            });
         }, 500);
     });
 </script>
