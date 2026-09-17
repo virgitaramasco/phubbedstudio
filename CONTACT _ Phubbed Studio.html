@@ -500,28 +500,6 @@
         }
     </style>
 
-<style id="mobile-resize-patch">
-@media screen and (max-width: 1000px) {
-    /* Main titles: Phubbed Studio TM */
-    #comp-mkuovkqf *[class*="wixui-rich-text__text"],
-    #comp-lzpgd4aa *[class*="wixui-rich-text__text"] {
-        font-size: 24px !important;
-        line-height: 1.2 !important;
-        white-space: normal !important;
-        word-break: break-word !important;
-    }
-    
-    /* Service titles: BRAND IDENTITY, VIDEO PHOTO SHOOT, POP UP EVENTS PRODUCTION */
-    #comp-mkwjuf0o *[class*="wixui-rich-text__text"],
-    #comp-mkwjtyc95 *[class*="wixui-rich-text__text"],
-    #comp-mkwk12bt *[class*="wixui-rich-text__text"] {
-        font-size: 18px !important;
-        line-height: 1.2 !important;
-        white-space: normal !important;
-        word-break: break-word !important;
-    }
-}
-</style>
 </head>
 <body class="responsive" style="--scrollbar-width: 15px;">
 <script type="text/javascript">
@@ -1151,11 +1129,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+
 <script>
-    // ULTIMATE FONT PATCH V3 - Handles split <p> tags
+    // ULTIMATE FONT PATCH V6 - Target exact IDs for resizing + Target words for font family
     document.addEventListener("DOMContentLoaded", () => {
         const targetWords = ["GRAPHIC PRODUCTION","SOCIAL MEDIA","BRAND","IDENTITY","VIDEO","PHOTO SHOOT","POP UP","EVENTS PRODUCTION"];
+        const serviceIds = ["comp-mkwjtn2u","comp-mkwjuf0o","comp-mkwjtyc95","comp-mkwk12bt"];
+        const titleIds = ["comp-mkuovkqf","comp-lzpgd4aa"];
+        
         setInterval(() => {
+            const isMobile = window.innerWidth <= 1000;
+            
+            // 1. Fix Font Families
             const elements = document.querySelectorAll('.wixui-rich-text__text');
             for (let i = 0; i < elements.length; i++) {
                 const el = elements[i];
@@ -1168,6 +1154,39 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
             }
+            
+            // 2. Fix Font Sizes for Services (18px)
+            serviceIds.forEach(id => {
+                const container = document.getElementById(id);
+                if (container) {
+                    if (isMobile) {
+                        const texts = container.querySelectorAll('.wixui-rich-text__text');
+                        texts.forEach(t => {
+                            t.style.setProperty("font-size", "15px", "important"); // 15px to be absolutely safe
+                            t.style.setProperty("line-height", "1.2", "important");
+                            t.style.setProperty("word-break", "break-word", "important");
+                            t.style.setProperty("white-space", "normal", "important");
+                        });
+                    }
+                }
+            });
+            
+            // 3. Fix Font Sizes for Titles (24px)
+            titleIds.forEach(id => {
+                const container = document.getElementById(id);
+                if (container) {
+                    if (isMobile) {
+                        const texts = container.querySelectorAll('.wixui-rich-text__text');
+                        texts.forEach(t => {
+                            t.style.setProperty("font-size", "24px", "important");
+                            t.style.setProperty("line-height", "1.2", "important");
+                            t.style.setProperty("word-break", "break-word", "important");
+                            t.style.setProperty("white-space", "normal", "important");
+                        });
+                    }
+                }
+            });
+            
         }, 500);
     });
 </script>
