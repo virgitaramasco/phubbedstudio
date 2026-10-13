@@ -2784,126 +2784,145 @@ url("https://static.wixstatic.com/ufonts/000ada_9ea7aaf0e394462bad6b00f788bad1d2
     width: 100% !important;
 }
 
-#comp-mkvgi0bs {
+#sg-nightlife-gallery-section {
     order: 3 !important;
     grid-area: auto !important;
     width: 100% !important;
-    height: auto !important;
 }
 
-#sg-nightlife-gallery-section {
+#sg-food-hospitality-gallery-section {
     order: 4 !important;
     grid-area: auto !important;
     width: 100% !important;
 }
 
+/* Hide old redundant giant standalone titles */
+#comp-mkvgi0bs,
 #sg-food-hospitality-title-section {
-    order: 5 !important;
-    grid-area: auto !important;
-    width: 100% !important;
-    height: auto !important;
+    display: none !important;
 }
 
-#sg-food-hospitality-gallery-section {
-    order: 6 !important;
-    grid-area: auto !important;
-    width: 100% !important;
-}
-
-/* Category Tabs Styling */
+/* Subnav Typography & Layout */
 #sg-subnav-section {
-    background-color: rgba(0, 0, 0, 0.92);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    padding: 16px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: #000000 !important;
+    padding: clamp(35px, 6vw, 75px) 20px clamp(20px, 3.5vw, 40px) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    z-index: 100 !important;
+    pointer-events: auto !important;
+    box-sizing: border-box !important;
 }
 
-.sg-tabs-wrapper {
-    display: inline-flex;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.07);
-    padding: 6px;
-    border-radius: 9999px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
-}
-
-.sg-tab-btn {
+.sg-nav-text-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: clamp(12px, 2vw, 24px) !important;
     font-family: helvetica-w01-roman, sans-serif !important;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 12px 28px;
-    border-radius: 9999px;
-    border: none;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.65);
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-    outline: none;
-    white-space: nowrap;
-    user-select: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    font-size: clamp(18px, 4vw, 42px) !important;
+    font-weight: bold !important;
+    letter-spacing: -0.02em !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    user-select: none !important;
+    pointer-events: auto !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
 }
 
-.sg-tab-btn:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.12);
+.sg-nav-item {
+    color: #ffffff !important;
+    cursor: pointer !important;
+    transition: opacity 0.25s ease, text-decoration 0.2s ease !important;
+    display: inline-block !important;
+    pointer-events: auto !important;
+    outline: none !important;
+    padding: 4px 6px !important;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
-.sg-tab-btn.active {
-    background: #ffffff !important;
-    color: #000000 !important;
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.25);
+.sg-nav-divider {
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-weight: 300 !important;
+    user-select: none !important;
+    display: inline-block !important;
+    font-size: clamp(18px, 4vw, 40px) !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
 }
 
-.sg-pane-visible {
-    animation: sgFadeIn 0.35s ease-out forwards;
+/* Underline and opacity states */
+/* Default view: Nightlife is active (underlined) */
+body:not(.sg-view-food) #sg-nav-nightlife {
+    text-decoration: underline !important;
+    text-underline-offset: 8px !important;
+    text-decoration-thickness: 3px !important;
+    opacity: 1 !important;
+}
+body:not(.sg-view-food) #sg-nav-food {
+    text-decoration: none !important;
+    opacity: 0.4 !important;
 }
 
-@keyframes sgFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Food view: Food & Hospitality is active (underlined) */
+body.sg-view-food #sg-nav-food {
+    text-decoration: underline !important;
+    text-underline-offset: 8px !important;
+    text-decoration-thickness: 3px !important;
+    opacity: 1 !important;
+}
+body.sg-view-food #sg-nav-nightlife {
+    text-decoration: none !important;
+    opacity: 0.4 !important;
 }
 
-/* Initial state: Food & Hospitality hidden */
-#sg-food-hospitality-title-section,
-#sg-food-hospitality-gallery-section {
-    display: none;
+/* Hover effects */
+#sg-nav-nightlife:hover,
+#sg-nav-food:hover {
+    opacity: 0.9 !important;
+}
+body:not(.sg-view-food) #sg-nav-nightlife:hover {
+    opacity: 1 !important;
+}
+body.sg-view-food #sg-nav-food:hover {
+    opacity: 1 !important;
+}
+
+/* Gallery visibility rules */
+/* Default: Nightlife visible, Food hidden */
+body:not(.sg-view-food) #sg-food-hospitality-gallery-section {
+    display: none !important;
+}
+body:not(.sg-view-food) #sg-nightlife-gallery-section {
+    display: block !important;
+}
+
+/* Food view: Nightlife hidden, Food visible */
+body.sg-view-food #sg-nightlife-gallery-section {
+    display: none !important;
+}
+body.sg-view-food #sg-food-hospitality-gallery-section {
+    display: block !important;
 }
 
 @media (max-width: 768px) {
     #sg-subnav-section {
-        padding: 12px 14px;
+        padding: 28px 15px 18px !important;
     }
-    .sg-tabs-wrapper {
-        gap: 6px;
-        padding: 5px;
-        width: 100%;
-        max-width: 380px;
+    .sg-nav-text-container {
+        font-size: clamp(15px, 4.4vw, 24px) !important;
+        gap: 8px !important;
     }
-    .sg-tab-btn {
-        font-size: 11px;
-        padding: 10px 14px;
-        letter-spacing: 0.06em;
-        flex: 1;
-        text-align: center;
+    .sg-nav-item {
+        padding: 2px 4px !important;
+    }
+    body:not(.sg-view-food) #sg-nav-nightlife,
+    body.sg-view-food #sg-nav-food {
+        text-underline-offset: 5px !important;
+        text-decoration-thickness: 2px !important;
     }
 }
 </style>
@@ -2983,14 +3002,92 @@ url("https://static.wixstatic.com/ufonts/000ada_9ea7aaf0e394462bad6b00f788bad1d2
 </span></span></span></button></div></nav></div></div></div></div></div></section></header><main id="PAGE_SECTIONSp936g" class="PAGE_SECTIONSp936g ooGRUo" data-main-content-parent="true"><section id="comp-mkw2rva9" tabindex="-1" data-block-level-container="Section" class="ke5pl1 comp-mkw2rva9 wixui-section fwXYgt" data-testid="section-container"><div id="bgLayers_comp-mkw2rva9" data-hook="bgLayers" data-motion-part="BG_LAYER comp-mkw2rva9" class="QG9w8P"><div data-testid="colorUnderlay" class="LNYVZi ayCf9D"></div><div id="bgMedia_comp-mkw2rva9" data-motion-part="BG_MEDIA comp-mkw2rva9" class="ROWgFb"></div></div><div data-testid="responsive-container-content" class="comp-mkw2rva9-container max-width-container"><div id="comp-mkw2s9d6" class="N8MGzv _v6ohL comp-mkw2s9d6 wixui-rich-text" data-testid="richTextElement" style="--motion-clip-start: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%); --motion-translate-x: 0%; --motion-translate-y: 100%;" data-motion-enter="done"><h2 class="font_3 wixui-rich-text__text"><span class="wixui-rich-text__text">PORTFOLIO</span></h2></div><div id="comp-mkw2rwyj" role="" class="HFEOE3 NaeT1r comp-mkw2rwyj-container comp-mkw2rwyj wixui-box" dir="ltr"><div aria-hidden="true" class="jdJeEr NYfD3h inner-box wixui-box"></div><div id="comp-mkw2rwyl" class="N8MGzv _v6ohL comp-mkw2rwyl wixui-rich-text" data-testid="richTextElement"><h1 class="font_2 wixui-rich-text__text"><span class="wixui-rich-text__text">SOCIAL MEDIA |<br class="wixui-rich-text__text">
 GRAPHIC PRODUCTION</span></h1></div><div id="comp-mkw2rwym" class="N8MGzv _v6ohL comp-mkw2rwym wixui-rich-text" data-testid="richTextElement"><h2 class="font_7 wixui-rich-text__text">Seeing Clear Results Through Social Media</h2></div></div></div></section>
 
-<!-- SG SUBNAV TABS START -->
+<!-- SG CATEGORY SWITCHER START -->
 <section id="sg-subnav-section">
-    <div class="sg-tabs-wrapper">
-        <button type="button" class="sg-tab-btn active" id="sg-tab-nightlife" onclick="switchSgTab('nightlife')">NIGHTLIFE</button>
-        <button type="button" class="sg-tab-btn" id="sg-tab-food" onclick="switchSgTab('food')">FOOD &amp; HOSPITALITY</button>
+    <div class="sg-nav-text-container">
+        <span class="sg-nav-item" id="sg-nav-nightlife" role="button" tabindex="0" onclick="setSgView('nightlife')">NIGHTLIFE</span>
+        <span class="sg-nav-divider">|</span>
+        <span class="sg-nav-item" id="sg-nav-food" role="button" tabindex="0" onclick="setSgView('food')">FOOD &amp; HOSPITALITY</span>
     </div>
 </section>
-<!-- SG SUBNAV TABS END -->
+
+<script id="sg-switcher-script">
+(function() {
+    function setSgView(view) {
+        if (view === 'food') {
+            document.body.classList.add('sg-view-food');
+            // Pause nightlife videos, play food videos
+            document.querySelectorAll('#sg-nightlife-gallery-section video').forEach(function(v) {
+                try { v.pause(); } catch(e) {}
+            });
+            document.querySelectorAll('#sg-food-hospitality-gallery-section video').forEach(function(v) {
+                try { v.play().catch(function(){}); } catch(e) {}
+            });
+        } else {
+            document.body.classList.remove('sg-view-food');
+            // Pause food videos, play nightlife videos
+            document.querySelectorAll('#sg-food-hospitality-gallery-section video').forEach(function(v) {
+                try { v.pause(); } catch(e) {}
+            });
+            document.querySelectorAll('#sg-nightlife-gallery-section video').forEach(function(v) {
+                try { v.play().catch(function(){}); } catch(e) {}
+            });
+        }
+    }
+
+    window.setSgView = setSgView;
+
+    function initListeners() {
+        var nl = document.getElementById('sg-nav-nightlife');
+        var fd = document.getElementById('sg-nav-food');
+        if (nl) {
+            nl.addEventListener('click', function(e) {
+                e.preventDefault();
+                setSgView('nightlife');
+            });
+        }
+        if (fd) {
+            fd.addEventListener('click', function(e) {
+                e.preventDefault();
+                setSgView('food');
+            });
+        }
+
+        // Global capture-phase listener: guarantees click works even if another element stops bubbling
+        window.addEventListener('click', function(e) {
+            var target = e.target;
+            if (!target) return;
+            if (target.id === 'sg-nav-nightlife' || target.closest('#sg-nav-nightlife')) {
+                setSgView('nightlife');
+            } else if (target.id === 'sg-nav-food' || target.closest('#sg-nav-food')) {
+                setSgView('food');
+            }
+        }, true);
+
+        // Touch event listener for mobile
+        window.addEventListener('touchend', function(e) {
+            var target = e.target;
+            if (!target) return;
+            if (target.id === 'sg-nav-nightlife' || target.closest('#sg-nav-nightlife')) {
+                setSgView('nightlife');
+            } else if (target.id === 'sg-nav-food' || target.closest('#sg-nav-food')) {
+                setSgView('food');
+            }
+        }, { passive: true, capture: true });
+
+        if (window.location.hash === '#food' || window.location.hash === '#food-hospitality') {
+            setSgView('food');
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initListeners);
+    } else {
+        initListeners();
+    }
+})();
+</script>
+<!-- SG CATEGORY SWITCHER END -->
 
 <section id="comp-mkvgi0bs" style="background-color: #000; padding: clamp(30px, 5vw, 60px) 0 clamp(15px, 2vw, 30px); text-align: center; position: relative; z-index: 10;">
     <div style="display: flex; justify-content: center; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
@@ -3051,27 +3148,19 @@ GRAPHIC PRODUCTION</span></h1></div><div id="comp-mkw2rwym" class="N8MGzv _v6ohL
     grid-area: auto !important;
     width: 100% !important;
 }
-#comp-mkvgi0bs {
+#sg-nightlife-gallery-section {
     order: 3 !important;
     grid-area: auto !important;
     width: 100% !important;
-    height: auto !important;
 }
-#sg-nightlife-gallery-section {
+#sg-food-hospitality-gallery-section {
     order: 4 !important;
     grid-area: auto !important;
     width: 100% !important;
 }
+#comp-mkvgi0bs,
 #sg-food-hospitality-title-section {
-    order: 5 !important;
-    grid-area: auto !important;
-    width: 100% !important;
-    height: auto !important;
-}
-#sg-food-hospitality-gallery-section {
-    order: 6 !important;
-    grid-area: auto !important;
-    width: 100% !important;
+    display: none !important;
 }
 .sg-gallery {
     display: grid;
@@ -3364,91 +3453,6 @@ GRAPHIC PRODUCTION</span></h1></div><div id="comp-mkw2rwym" class="N8MGzv _v6ohL
 </div>
 </section>
 <!-- FOOD & HOSPITALITY SECTION END -->
-
-<script id="sg-category-tabs-script">
-function switchSgTab(tab) {
-    const tabNightlife = document.getElementById('sg-tab-nightlife');
-    const tabFood = document.getElementById('sg-tab-food');
-    
-    const nightlifeTitle = document.getElementById('comp-mkvgi0bs');
-    const nightlifeGallery = document.getElementById('sg-nightlife-gallery-section');
-    
-    const foodTitle = document.getElementById('sg-food-hospitality-title-section');
-    const foodGallery = document.getElementById('sg-food-hospitality-gallery-section');
-    
-    const subnav = document.getElementById('sg-subnav-section');
-
-    if (tab === 'food') {
-        if (tabFood) tabFood.classList.add('active');
-        if (tabNightlife) tabNightlife.classList.remove('active');
-        
-        // Hide Nightlife
-        if (nightlifeTitle) nightlifeTitle.style.setProperty('display', 'none', 'important');
-        if (nightlifeGallery) nightlifeGallery.style.setProperty('display', 'none', 'important');
-        
-        // Show Food & Hospitality
-        if (foodTitle) {
-            foodTitle.style.setProperty('display', 'block', 'important');
-            foodTitle.classList.add('sg-pane-visible');
-        }
-        if (foodGallery) {
-            foodGallery.style.setProperty('display', 'block', 'important');
-            foodGallery.classList.add('sg-pane-visible');
-        }
-        
-        // Pause Nightlife videos
-        document.querySelectorAll('#sg-nightlife-gallery video').forEach(v => {
-            try { v.pause(); } catch(e) {}
-        });
-        
-        // Play Food videos
-        document.querySelectorAll('#sg-food-hospitality-gallery video').forEach(v => {
-            try { v.play().catch(() => {}); } catch(e) {}
-        });
-    } else {
-        if (tabNightlife) tabNightlife.classList.add('active');
-        if (tabFood) tabFood.classList.remove('active');
-        
-        // Hide Food & Hospitality
-        if (foodTitle) foodTitle.style.setProperty('display', 'none', 'important');
-        if (foodGallery) foodGallery.style.setProperty('display', 'none', 'important');
-        
-        // Show Nightlife
-        if (nightlifeTitle) {
-            nightlifeTitle.style.setProperty('display', 'block', 'important');
-            nightlifeTitle.classList.add('sg-pane-visible');
-        }
-        if (nightlifeGallery) {
-            nightlifeGallery.style.setProperty('display', 'block', 'important');
-            nightlifeGallery.classList.add('sg-pane-visible');
-        }
-        
-        // Pause Food videos
-        document.querySelectorAll('#sg-food-hospitality-gallery video').forEach(v => {
-            try { v.pause(); } catch(e) {}
-        });
-        
-        // Play Nightlife videos
-        document.querySelectorAll('#sg-nightlife-gallery video').forEach(v => {
-            try { v.play().catch(() => {}); } catch(e) {}
-        });
-    }
-
-    // If user scrolled past the subnav, scroll smoothly to the subnav
-    if (subnav) {
-        const rect = subnav.getBoundingClientRect();
-        if (rect.top < 0) {
-            subnav.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash === '#food' || window.location.hash === '#food-hospitality') {
-        switchSgTab('food');
-    }
-});
-</script>
 
 </main><footer id="comp-mkvje18h" class="comp-mkvje18h S829f_ comp-mkvje18h-container" slots="[object Object]" wix="[object Object]"><section id="comp-mkvje18h_r_comp-mkvj4zu9" tabindex="-1" data-block-level-container="Section" class="ke5pl1 comp-mkvje18h_r_comp-mkvj4zu9 wixui-footer fwXYgt" data-testid="section-container"><div id="bgLayers_comp-mkvje18h_r_comp-mkvj4zu9" data-hook="bgLayers" data-motion-part="BG_LAYER comp-mkvje18h_r_comp-mkvj4zu9" class="QG9w8P"><div data-testid="colorUnderlay" class="LNYVZi ayCf9D"></div><div id="bgMedia_comp-mkvje18h_r_comp-mkvj4zu9" data-motion-part="BG_MEDIA comp-mkvje18h_r_comp-mkvj4zu9" class="ROWgFb"></div></div><div data-testid="responsive-container-content" class="comp-mkvje18h_r_comp-mkvj4zu9-container max-width-container"><div id="comp-mkvje18h_r_comp-mkviky7d" role="" class="HFEOE3 NaeT1r comp-mkvje18h_r_comp-mkviky7d-container comp-mkvje18h_r_comp-mkviky7d wixui-box" dir="ltr"><div aria-hidden="true" class="jdJeEr NYfD3h inner-box wixui-box"></div><div id="comp-mkvje18h_r_comp-mkviky7g" class="comp-mkvje18h_r_comp-mkviky7g wixui-vector-image"><div data-testid="svgRoot-comp-mkvje18h_r_comp-mkviky7g" class="iL7Pq5 gx51wo comp-mkvje18h_r_comp-mkviky7g">
 <svg preserveAspectRatio="xMidYMid meet" data-bbox="0.01 -0.02 442.165 252.02" viewBox="0.01 -0.02 442.165 252.02" height="252" width="442.17" xmlns="http://www.w3.org/2000/svg" data-type="color" role="presentation" aria-hidden="true" aria-label="">
