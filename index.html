@@ -1377,7 +1377,7 @@ NOT JUST SCROLLING</span></h3></div><!--/$--></div><!--/$--></div></section><!--
             });
         } catch (e) {
           console.warn('Cannot set layoutFixer css', e);
-        }</script></div></div></div></div></div><!--/$--></div></div><!--/$--></div></section><!--/$--><!--$--><section id="comp-mkui8isp" tabindex="-1" data-block-level-container="Section" class="ke5pl1 comp-mkui8isp wixui-section fwXYgt" data-testid="section-container"><div id="bgLayers_comp-mkui8isp" data-hook="bgLayers" data-motion-part="BG_LAYER comp-mkui8isp" class="QG9w8P"><div data-testid="colorUnderlay" class="LNYVZi ayCf9D"></div><div id="bgMedia_comp-mkui8isp" data-motion-part="BG_MEDIA comp-mkui8isp" class="ROWgFb"></div></div><div data-testid="responsive-container-content" role="group" class="comp-mkui8isp-container max-width-container"><!--$--><div id="comp-lzkyusve" class="comp-lzkyusve" data-semantic-classname="button"><a data-testid="linkElement" href="STUDIO _ Phubbed Studio.html" target="_self" class="StylableButton2545352419__root style-lzkyusvg1__root wixui-button StylableButton2545352419__link" aria-label="FULL PORTFOLIO"><span class="StylableButton2545352419__container"><span class="StylableButton2545352419__label wixui-button__label" data-testid="stylablebutton-label">FULL PORTFOLIO</span><span class="StylableButton2545352419__icon wixui-button__icon" aria-hidden="true" data-testid="stylablebutton-icon"><span>
+        }</script></div></div></div></div></div><!--/$--></div></div><!--/$--></div></section><!--/$--><!--$--><section id="comp-mkui8isp" tabindex="-1" data-block-level-container="Section" class="ke5pl1 comp-mkui8isp wixui-section fwXYgt" data-testid="section-container"><div id="bgLayers_comp-mkui8isp" data-hook="bgLayers" data-motion-part="BG_LAYER comp-mkui8isp" class="QG9w8P"><div data-testid="colorUnderlay" class="LNYVZi ayCf9D"></div><div id="bgMedia_comp-mkui8isp" data-motion-part="BG_MEDIA comp-mkui8isp" class="ROWgFb"></div></div><div data-testid="responsive-container-content" role="group" class="comp-mkui8isp-container max-width-container"><!--$--><div id="comp-lzkyusve" class="comp-lzkyusve" data-semantic-classname="button"><a data-testid="linkElement" href="STUDIO _ Phubbed Studio.html" target="_self" class="StylableButton2545352419__root style-lzkyusvg1__root wixui-button StylableButton2545352419__link" aria-label="PROJECTS"><span class="StylableButton2545352419__container"><span class="StylableButton2545352419__label wixui-button__label" data-testid="stylablebutton-label">PROJECTS</span><span class="StylableButton2545352419__icon wixui-button__icon" aria-hidden="true" data-testid="stylablebutton-icon"><span>
 <svg data-bbox="29.5 29.5 141 141" viewBox="0 0 200 200" height="200" width="200" xmlns="http://www.w3.org/2000/svg" data-type="shape">
     <g>
         <path d="M100 29.5c-38.874 0-70.5 31.626-70.5 70.5s31.626 70.5 70.5 70.5 70.5-31.626 70.5-70.5-31.626-70.5-70.5-70.5zm0 133c-34.463 0-62.5-28.037-62.5-62.5S65.537 37.5 100 37.5s62.5 28.037 62.5 62.5-28.037 62.5-62.5 62.5zm30.09-60.584c-.055.101-.099.205-.164.302a3.99 3.99 0 0 1-.501.613l-26.597 26.597c-.78.781-1.805 1.172-2.828 1.172s-2.048-.391-2.828-1.172a4 4 0 0 1 0-5.656L116.943 104H73.4a4 4 0 0 1 0-8h43.542l-19.77-19.771a4 4 0 1 1 5.656-5.656l26.597 26.597c.187.187.354.392.501.613.065.097.109.201.164.302.07.127.147.25.203.386.055.132.086.27.126.405.034.114.078.223.101.341.103.517.103 1.05 0 1.566-.023.118-.068.227-.101.341-.04.136-.071.273-.126.405-.055.136-.132.259-.203.387z"></path>
@@ -1993,23 +1993,26 @@ footer[id^="comp-"] {
 }
 </style>
 <style>
-/* Fix Pro Gallery Height on Mobile */
+/* Homepage: Hide AGME and Tuttofinto gallery, leave only PROJECTS button */
+#comp-lzfv67u1 {
+    display: none !important;
+}
+#comp-mkui7gmm,
+#comp-mkui8isp {
+    background-color: #000000 !important;
+    position: relative !important;
+    z-index: 50 !important;
+}
+#comp-mkui8isp {
+    margin-top: 0px !important;
+    padding-top: 10px !important;
+    padding-bottom: 80px !important;
+}
 @media screen and (max-width: 1000px) {
-    /* The gallery container is hardcoded to ~800px from desktop. 
-       On mobile, the 2 items are side-by-side (approx 150px tall). 
-       We force the container to be 200px tall to close the gap. */
-    #pro-gallery-container-comp-lzfvag3q,
-    #pro-gallery-margin-container-comp-lzfvag3q {
-        height: 220px !important;
-    }
-    
     #comp-mkui8isp {
-        margin-top: 0px !important; /* Reset previous pull up */
-    }
-    
-    /* Add space between text and gallery */
-    #comp-lzfv67u1 {
-        padding-top: 40px !important; margin-top: 0 !important;
+        margin-top: 0px !important;
+        padding-top: 20px !important;
+        padding-bottom: 50px !important;
     }
 }
 </style>
