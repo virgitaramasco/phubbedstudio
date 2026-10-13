@@ -619,9 +619,11 @@ url("https://static.wixstatic.com/ufonts/000ada_9ea7aaf0e394462bad6b00f788bad1d2
     line-height: 1.6;
 }
 .proj-links {
-    flex: 0 0 35%;
+    margin-left: auto;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     gap: 10px;
     text-align: right;
 }
@@ -655,6 +657,8 @@ url("https://static.wixstatic.com/ufonts/000ada_9ea7aaf0e394462bad6b00f788bad1d2
     .proj-desc, .proj-links {
         flex: 1 1 auto;
         text-align: left;
+        margin-left: 0;
+        align-items: flex-start;
     }
     .proj-title {
         font-size: 2.2rem;
